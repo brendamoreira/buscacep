@@ -16,9 +16,12 @@ export default {
 div {
     width: 300px;
     height: auto;
-    border: 2px solid black;
+    border: 2px dotted rgb(27, 167, 255);
     margin: auto;
     box-sizing: border-box;
+    border-radius: 3px;
+    background-image: none;
+    background-color: white;
 }
 p {
     margin: 0;
