@@ -1,7 +1,7 @@
 <template>
     <div>
-        <form class="search" style="margin:auto;max-width:300px">
-            <input type="text" placeholder="Digite o CEP">
+        <form class="search" style="margin:auto;max-width:300px" @submit.prevent="searchCep">
+            <input type="text" v-model="cep" placeholder="Digite o CEP">
             <button type="submit"><i class="fa fa-search"></i></button>
         </form>
     </div>
@@ -9,7 +9,19 @@
 <script>
 export default {
     name:'Search',
-    
+    data() {
+        return{
+            cep: '',
+        }
+    },
+    methods: {
+        searchCep(){
+            if(this.cep.trim() !== ''){
+                this.$emit('search',this.cep);
+                this.cep= '';
+            }
+        }
+    }
 }
 </script>
 <style scoped>
@@ -21,11 +33,11 @@ export default {
 form.search input[type=text] {
   padding: 10px;
   font-size: 17px;
-  border: 1px solid grey;
+  border-style: none;
   border-radius: 3px;
   float: left;
   width: 80%;
-  background: #f1f1f1;
+  background: white;
 }
 
 form.search button {
@@ -35,10 +47,10 @@ form.search button {
   background: #2196F3;
   color: white;
   font-size: 17px;
-  border: 1px solid grey;
+  border-style: none;
   border-left: none;
   cursor: pointer;
-  border-radius: 3px;
+  border-radius: 0 3px 3px 0;
 }
 
 form.search button:hover {
@@ -50,5 +62,8 @@ form.search::after {
   clear: both;
   display: table;
 }
-
+form{
+    border: 1px solid grey;
+    border-radius: 4px;
+}
 </style>
