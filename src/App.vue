@@ -2,7 +2,7 @@
   <div id="app">
     <search class="search" @search="requestCep"/>
     <loading v-if="loading"/>
-    <address-card :address="addressObject"/>
+    <address-card v-if="addressObject" :address="addressObject"/>
     <not-found v-if="notFound"/>
   </div>
 </template>
@@ -33,12 +33,13 @@ export default {
     requestCep(cep){
       this.loading = true;
       this.notFound = false;
+      this.addressObject = null;
       axios
       .get(`https://viacep.com.br/ws/${cep}/json/`)
       .then(response => {
         this.addressObject = response.data
       })
-      .catch(error => {
+      .catch(() => {
         this.notFound = true
       })
       .finally(() => {

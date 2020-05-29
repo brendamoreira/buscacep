@@ -16,12 +16,11 @@ export default {
 div {
     width: 300px;
     height: auto;
-    border: 2px dotted rgb(27, 167, 255);
     margin: auto;
     box-sizing: border-box;
     border-radius: 3px;
     background-image: none;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.776);
 }
 p {
     margin: 0;

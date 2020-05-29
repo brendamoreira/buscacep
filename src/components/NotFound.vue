@@ -16,8 +16,7 @@ export default {
     text-align: center;
     padding: 10px;
     border-radius: 3px;
-    border: 2px dotted red;
     color: red;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.776);
 }
 </style>
